@@ -5,7 +5,7 @@ class Error(Exception):
     pass
 
 
-class ModuleNameError(Exception):
+class ModuleNameMissingError(Exception):
     """
     No Module Name given to install using pip
     """

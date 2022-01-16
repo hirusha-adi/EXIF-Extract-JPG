@@ -1,6 +1,6 @@
 import os
 
-from errors import ModuleNameError
+from .errors import ModuleNameMissingError
 
 if os.name == 'nt':
     PIP = "pip"
@@ -24,7 +24,8 @@ __LOGO__ = r"""
 
 def pip_install(module_name: str = None):
     if module_name is None:
-        raise ModuleNameError(message="No module name is given to install")
+        raise ModuleNameMissingError(
+            message="No module name is given to install")
 
     os.system(PYTHON + " -m" + PIP + " install" + module_name)
 
@@ -76,6 +77,3 @@ def create_google_maps_url(gps_coords):
         gps_coords["lon_ref"])
 
     return f"https://maps.google.com/?q={dec_deg_lat},{dec_deg_lon}"
-
-
-pip_install()
