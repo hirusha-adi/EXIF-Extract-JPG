@@ -84,6 +84,7 @@ def EXIF_TOOL(showLogo: bool = True,
 if __name__ == "__main__":
 
     import argparse
+    # https://docs.python.org/3/howto/argparse.html
 
     parser = argparse.ArgumentParser(
         description='extract EXIF data from images')
