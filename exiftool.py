@@ -62,16 +62,16 @@ def EXIF_TOOL(showLogo: bool = True,
             print(
                 f"DEBUG: {datetime.now()}: Found {len(files)} in the images folder")
 
-    with open(f"..{SLASH}exif_data.csv", "a", newline="") as csv_file:
+    with open(f"..{SLASH}{outputFileName}", "a", newline="") as csv_file:
         writer = csv.writer(csv_file)
 
         if notSlient:
             if verbosity:
-                print(f"+ Opened ..{SLASH}exif_data.csv in append mode")
+                print(f"+ Opened ..{SLASH}{outputFileName} in append mode")
 
             if debug:
                 print(
-                    f"DEBUG: {datetime.now()}: Opened ..{SLASH}exif_data.csv in append-text mode")
+                    f"DEBUG: {datetime.now()}: Opened ..{SLASH}{outputFileName} in append-text mode")
 
         for file in files:
             try:
@@ -192,7 +192,7 @@ def EXIF_TOOL(showLogo: bool = True,
                         print(
                             f"DEBUG: {datetime.now()}: Image.open() raised IOError. Unsupported file types")
 
-                print("File format not supported!")
+                    print("File format not supported!")
 
     os.chdir(cwd)
 
