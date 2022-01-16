@@ -4,9 +4,6 @@
 # The program could be extended to support .HEIC, .PNG and other formats.
 # Note most social media sites strip exif data from uploaded photos.
 
-# 2. Add .jpg images downloaded from Flickr to subfolder ./images from where the script is stored.
-
-
 import csv
 from datetime import datetime
 import os
@@ -203,7 +200,7 @@ if __name__ == "__main__":
     # https://docs.python.org/3/howto/argparse.html
 
     parser = argparse.ArgumentParser(
-        description='extract EXIF data from images')
+        description='Extract EXIF data from images. This program is for .JPG and .TIFF format files. \nThe program coule be extended to support .HEUI, .PNG and other formats. \nNote that most social media sities strip exif data from uploaded photos')
 
     parser.add_argument("-o", "--output",
                         help="display a square of a given number",
