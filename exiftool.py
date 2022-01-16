@@ -1,13 +1,9 @@
 #!/usr/bin/env python3
 
-# This program is for .JPG and .TIFF format files.
-# The program could be extended to support .HEIC, .PNG and other formats.
-# Note most social media sites strip exif data from uploaded photos.
-
 import csv
-from datetime import datetime
 import os
 import sys
+from datetime import datetime
 
 from src.utils import __LOGO__, SLASH, create_google_maps_url, pip_install
 
@@ -197,6 +193,7 @@ def EXIF_TOOL(showLogo: bool = True,
 if __name__ == "__main__":
 
     import argparse
+
     # https://docs.python.org/3/howto/argparse.html
 
     parser = argparse.ArgumentParser(
@@ -218,23 +215,31 @@ if __name__ == "__main__":
                         help="dont print the logo of the script",
                         action="store_true")
 
+    parser.add_argument("-s", "--silent",
+                        help="dont print the logo of the script",
+                        action="store_true")
+
     args = parser.parse_args()
 
+    verbosity = None
     if args.verbose:
         verbosity = True
         debugmode = False
         silentMode = False
 
+    debugmode = None
     if args.debug:
         debugmode = True
         verbosity = False
         silentMode = False
 
+    silentMode = None
     if args.silent:
         silentMode = True
         verbosity = False
         debugmode = False
 
+    showLogo = None
     if args.nologo:
         showLogo = False
 
